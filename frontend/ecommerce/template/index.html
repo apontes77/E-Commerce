@@ -1,20 +1,15 @@
-import './index.css';
-
-function App() {
-
-    const openMenu = () => {
-        document.querySelector(".sidebar").classList.add("open");
-    }
-
-    const closeMenu = () => {
-        document.querySelector(".sidebar").classList.remove("open");
-    }
-
-  return ( 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Shopping do Povo </title>
+</head>
+<body>
     <div class="grid-container">
         <header class="header">
             <div class="brand">
-                <button onClick={openMenu}>
+                <button onclick="openMenu()">
                     &#9776;
                 </button>
                 <a href="index.html"> Shopping do Povo</a>
@@ -25,7 +20,7 @@ function App() {
         </header>
         <aside class="sidebar">
             <h3>Categorias de Produtos</h3>
-            <button  class="sidebar-close-button" onClick={closeMenu}>x</button>
+            <button  class="sidebar-close-button" onclick="closeMenu()">x</button>
             <ul>
                 <li>
                     <a href="index.html">PCs e Notebooks</a>
@@ -40,7 +35,7 @@ function App() {
                 <ul class="products">
                     <li>
                         <div class="product">
-                            <img class="product-image" src="/images/fone.jpg" alt="Fone JBL Quantum 100"/>
+                            <img class="product-image" src="../template/images/fone.jpg" alt="Fone JBL Quantum 100">
                             <div class="product-name">
                                 <a href="product.html">Headset</a>
                             </div>
@@ -50,7 +45,7 @@ function App() {
                     </li>
                     <li>
                         <div class="product">
-                            <img class="product-image" src="/images/fone.jpg" alt="Fone JBL Quantum 100"/>
+                            <img class="product-image" src="../template/images/fone.jpg" alt="Fone JBL Quantum 100">
                             <div class="product-name">
                                 <a href="product.html">Headset</a>
                             </div>
@@ -60,7 +55,7 @@ function App() {
                     </li>
                     <li>
                         <div class="product">
-                            <img class="product-image" src="/images/fone.jpg" alt="Fone JBL Quantum 100"/>
+                            <img class="product-image" src="../template/images/fone.jpg" alt="Fone JBL Quantum 100">
                             <div class="product-name">
                                 <a href="product.html">Headset</a>
                             </div>
@@ -70,7 +65,7 @@ function App() {
                     </li>
                     <li>
                         <div class="product">
-                            <img class="product-image" src="/images/fone.jpg" alt="Fone JBL Quantum 100"/>
+                            <img class="product-image" src="../template/images/fone.jpg" alt="Fone JBL Quantum 100">
                             <div class="product-name">
                                 <a href="product.html">Headset</a>
                             </div>
@@ -80,7 +75,7 @@ function App() {
                     </li>
                     <li>
                         <div class="product">
-                            <img class="product-image" src="/images/fone.jpg" alt="Fone JBL Quantum 100"/>
+                            <img class="product-image" src="../template/images/fone.jpg" alt="Fone JBL Quantum 100">
                             <div class="product-name">
                                 <a href="product.html">Headset</a>
                             </div>
@@ -94,7 +89,14 @@ function App() {
         </main>
         <footer class="footer">Todos os direitos reservados</footer>
     </div>
-  );
-}
+<script>
+    function openMenu() {
+        document.querySelector(".sidebar").classList.add("open");
+    }
 
-export default App;
+    function closeMenu() {
+        document.querySelector(".sidebar").classList.remove("open");
+    }
+</script>
+</body>
+</html>
