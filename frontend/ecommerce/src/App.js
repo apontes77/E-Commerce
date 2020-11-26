@@ -1,4 +1,5 @@
 import './index.css';
+import data from './data';
 
 function App() {
 
@@ -38,56 +39,20 @@ function App() {
         <main class="main">
             <div class="content">
                 <ul class="products">
-                    <li>
+                    {
+                        data.products.map(product => 
+                        <li>
                         <div class="product">
-                            <img class="product-image" src="/images/fone.jpg" alt="Fone JBL Quantum 100"/>
+                            <img class="product-image" src={product.image} alt="Fone JBL Quantum 100"/>
                             <div class="product-name">
-                                <a href="product.html">Headset</a>
+                                <a href="product.html">{product.name}</a>
                             </div>
-                            <div class="product-brand">JBL</div>
-                            <div class="product-price">R$ 272.00</div>
+                        <div class="product-brand">{product.brand}</div>
+                        <div class="product-price">R$ {product.price}</div>
                         </div>
-                    </li>
-                    <li>
-                        <div class="product">
-                            <img class="product-image" src="/images/fone.jpg" alt="Fone JBL Quantum 100"/>
-                            <div class="product-name">
-                                <a href="product.html">Headset</a>
-                            </div>
-                            <div class="product-brand">JBL</div>
-                            <div class="product-price">R$ 272.00</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="product">
-                            <img class="product-image" src="/images/fone.jpg" alt="Fone JBL Quantum 100"/>
-                            <div class="product-name">
-                                <a href="product.html">Headset</a>
-                            </div>
-                            <div class="product-brand">JBL</div>
-                            <div class="product-price">R$ 272.00</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="product">
-                            <img class="product-image" src="/images/fone.jpg" alt="Fone JBL Quantum 100"/>
-                            <div class="product-name">
-                                <a href="product.html">Headset</a>
-                            </div>
-                            <div class="product-brand">JBL</div>
-                            <div class="product-price">R$ 272.00</div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="product">
-                            <img class="product-image" src="/images/fone.jpg" alt="Fone JBL Quantum 100"/>
-                            <div class="product-name">
-                                <a href="product.html">Headset</a>
-                            </div>
-                            <div class="product-brand">JBL</div>
-                            <div class="product-price">R$ 272.00</div>
-                        </div>
-                    </li>
+                    </li>)
+                    }
+                   
                 </ul>
             </div>
             
