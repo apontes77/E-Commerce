@@ -32,7 +32,7 @@ function ProductScreen (props) {
             <div className="details-action">
                 <ul>
                     <li>
-                        Preço: {product.price}
+                        Preço: R$ {product.price}
                     </li>
                     <li>
                         Status: {product.status}
