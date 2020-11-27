@@ -14,7 +14,6 @@ function App() {
     }
 
   return ( 
-
     <BrowserRouter>
     <div class="grid-container">
         <header class="header">
@@ -43,10 +42,8 @@ function App() {
         <main class="main">
             <div class="content">
                 <Route path="/product/:id" component={ProductScreen}/>
-                <Route path="/" exact={true} component={HomeScreen}/>
-               
+                <Route path="/" exact={true} component={HomeScreen}/>             
             </div>
-            
         </main>
         <footer class="footer">Todos os direitos reservados</footer>
     </div>
