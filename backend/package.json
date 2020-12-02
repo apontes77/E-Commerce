@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
 <<<<<<< HEAD
+<<<<<<< HEAD
     "start":"node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
 =======
@@ -12,6 +13,11 @@
     "dev": "nodemon src/index.js",
     "start": "node src/index.js"
 >>>>>>> upstream/main
+=======
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+>>>>>>> 01e29162c75e9f12b8941fbbef5d42fe99ac6b9a
   },
   "author": "",
   "license": "ISC",
