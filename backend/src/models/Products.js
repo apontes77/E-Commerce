@@ -15,6 +15,14 @@ const ProductSchema = new mongoose.Schema({
         type: Number,
         required: true,
         min: 0
+    },
+    file_name: {
+        type: String,
+        required: true
+    },
+    file_url: {
+        type: String,
+        required: true
     }
 })
 
