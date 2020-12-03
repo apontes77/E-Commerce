@@ -5,16 +5,20 @@ const ProductSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    valueUnit: {
-        type: Number
+    price: { 
+        type: Number, required: true
+        
     },
     description: {
-        type: String
+        type: String, required: true
     },
-    amount: {
+    countInStock: {
         type: Number,
         required: true,
         min: 0
+    },
+    brand: {
+        type: String, required: false
     },
     file_name: {
         type: String,
