@@ -26,7 +26,7 @@ router.post('/registerProduct', multer(multerConfig).single('file'), async (req,
     }
 })
 
-router.post('/updateProduct', multer(multerConfig).single('file'), async (req, res) => {
+router.put('/updateProduct', multer(multerConfig).single('file'), async (req, res) => {
     const { _id, name, price, description, countInStock } = req.body
   
     try {
