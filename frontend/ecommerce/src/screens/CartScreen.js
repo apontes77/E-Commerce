@@ -43,7 +43,7 @@ const checkoutHandler = () => {
             {
                 cartItems.length === 0?
                 <div>
-                    Carrinho está vazio
+                    Seu carrinho está vazio
                 </div>
                 :
                 cartItems.map(item => 
