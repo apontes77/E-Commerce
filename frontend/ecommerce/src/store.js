@@ -6,7 +6,7 @@ import { productDeleteReducer, productDetailsReducer, productListReducer, produc
 
 const cartItems = Cookie.getJSON("cartItems") || [];
 
-const initialState = { cart: { cartItems }};
+const initialState = { cart: { cartItems, shipping: {}, payment: {} } };
 const reducer = combineReducers({
   productList: productListReducer,
   productDetails: productDetailsReducer,
