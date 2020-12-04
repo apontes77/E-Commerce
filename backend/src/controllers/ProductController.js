@@ -19,8 +19,7 @@ router.post('/registerProduct', multer(multerConfig).single('file'), async (req,
             file_name: key,
             file_url: location,
         })
-
-        return res.send({ product })
+        return res.status(201).send({ product });
     }catch(err) {
         return res.status(400).send({ error: err })
     }

@@ -9,7 +9,6 @@ const OrdersController = require('./controllers/OrderController')
 
 const app = server()
 
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 
