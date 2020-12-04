@@ -6,35 +6,36 @@ const Product = require('../models/Products')
 const router = express.Router()
 
 router.post('/registerProduct', multer(multerConfig).single('file'), async (req, res) => {
-    const { name, valueUnit, description, amount } = req.body
+    const { name, price, description, countInStock, brand } = req.body
     const { key,  location } = req.file
 
     try {
         const product = await Product.create({
             name: name,
-            valueUnit,
+            price,
             description,
-            amount,
+            countInStock,
+            brand,
             file_name: key,
             file_url: location,
         })
-
-        return res.send({ product })
+        return res.status(201).send({ product });
     }catch(err) {
         return res.status(400).send({ error: err })
     }
 })
 
-router.post('/updateProduct', multer(multerConfig).single('file'), async (req, res) => {
-    const { _id, name, valueUnit, description, amount } = req.body
+router.put('/updateProduct', multer(multerConfig).single('file'), async (req, res) => {
+    const { _id, name, price, description, countInStock } = req.body
   
     try {
         const product = await Product.update({
             _id,
             name: name,
-            valueUnit,
+            price,
             description,
-            amount,
+            countInStock,
+            brand,
             file_name: key,
             file_url: location,
         })
