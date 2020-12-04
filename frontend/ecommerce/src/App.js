@@ -5,6 +5,9 @@ import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import CartScreen from './screens/CartScreen';
 import ProductsScreen from './screens/ProductsScreen';
+import ShippingScreen from './screens/ShippingScreen';
+import PaymentScreen from './screens/PaymentScreen';
+import PlaceOrderScreen from './screens/PlaceOrderScreen';
 
 function App() {
 
@@ -25,10 +28,7 @@ function App() {
                     &#9776;
                 </button>
                 <Link to="/">Shopping do Povo</Link>
-            </div>
-            <div class="header-links">
-                <a href="pagamento.html">Pagamento</a>
-            </div>          
+            </div>     
         </header>
         <aside class="sidebar">
             <h3>Categorias de Produtos</h3>
@@ -44,6 +44,10 @@ function App() {
         </aside>
         <main class="main">
             <div class="content">
+                <Route path="/products" component={ProductsScreen} />
+                <Route path="/shipping" component={ShippingScreen} />
+                <Route path="/payment" component={PaymentScreen} />
+                <Route path="/placeorder" component={PlaceOrderScreen} />
                 <Route path="/register" component={ProductsScreen}/>
                 <Route path="/product/:id" component={ProductScreen}/>
                 <Route path="/cart/:id?" component={CartScreen}/>
