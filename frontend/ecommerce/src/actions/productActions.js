@@ -1,18 +1,18 @@
 import axios from 'axios';
-import { PRODUCT_LIST_REQUEST, PRODUCT_LIST_SUCESS, PRODUCT_LIST_FAIL, PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_SUCESS, PRODUCT_DETAILS_FAIL, PRODUCT_SAVE_REQUEST, PRODUCT_SAVE_SUCCESS, PRODUCT_SAVE_FAIL, PRODUCT_DELETE_REQUEST, PRODUCT_DELETE_SUCCESS, PRODUCT_DELETE_FAIL } from "../constants/productConstants";
+import { PRODUCT_LIST_REQUEST, PRODUCT_LIST_FAIL, PRODUCT_DETAILS_REQUEST, PRODUCT_DETAILS_FAIL, PRODUCT_SAVE_REQUEST, PRODUCT_SAVE_SUCCESS, PRODUCT_SAVE_FAIL, PRODUCT_DELETE_REQUEST, PRODUCT_DELETE_SUCCESS, PRODUCT_DELETE_FAIL, PRODUCT_LIST_SUCCESS, PRODUCT_DETAILS_SUCCESS } from "../constants/productConstants";
 
 const listProducts= () => async (dispatch) => {
     try { 
         dispatch({ type: PRODUCT_LIST_REQUEST });
         const { data } = await axios.get("/register/getAllProducts");
-        dispatch({ type: PRODUCT_LIST_SUCESS, payload: data }); 
+        dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data }); 
     }   
     catch(error) {
         dispatch({ type: PRODUCT_LIST_FAIL, payload: error.message});
     }
 }
 
-const saveProduct = (product) => async (dispatch, getState) => {
+const saveProduct = (product) => async (dispatch) => {
     try {
       dispatch({ type: PRODUCT_SAVE_REQUEST, payload: product });
      
@@ -34,7 +34,7 @@ const detailsProduct = (productId) => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_DETAILS_REQUEST, payload: productId})
         const { data } = await axios.get("/register/getProduct" + productId);
-        dispatch({type: PRODUCT_DETAILS_SUCESS, payload: data });
+        dispatch({type: PRODUCT_DETAILS_SUCCESS, payload: data });
     } catch (error) {
         dispatch({type: PRODUCT_DETAILS_FAIL, payload: error.message});
     }
