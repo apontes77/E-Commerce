@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { saveProduct, listProducts, deleteProduct } from '../actions/productActions';
 
 function ProductsScreen(props) {
+
   const [modalVisible, setModalVisible] = useState(false);
   const [id, setId] = useState('');
   const [name, setName] = useState('');
@@ -27,7 +28,7 @@ function ProductsScreen(props) {
     if (successSave) {
       setModalVisible(false);
     }
-    dispatch(listProducts());
+    
     return () => {};
   }, [successSave, successDelete]);
 
@@ -45,14 +46,20 @@ function ProductsScreen(props) {
     e.preventDefault();
     dispatch(saveProduct({
       _id: id,
-      name, price, file_url, brand,
-      countInStock, description
+      valueUnit: "",
+      name, 
+      price,
+      description,
+      countInStock, 
+      brand,
+      amount: ""
     }));
   }
   const deleteHandler = (product) => {
     dispatch(deleteProduct(product._id));
   }
   return <div className="content content-margined">
+{async function t(){ console.log(await productList)}}
 
     <div className="product-header">
       <h3>Produtos</h3>
@@ -69,7 +76,7 @@ function ProductsScreen(props) {
               {loadingSave && <div>Carregando...</div>}
               {errorSave && <div>{errorSave}</div>}
             </li>
-
+      
             <li>
               <label htmlFor="name">
                 Nome
@@ -137,7 +144,7 @@ function ProductsScreen(props) {
           </tr>
         </thead>
         <tbody>
-          {products.map(product => (<tr key={product._id}>
+          { products.map(product => (<tr key={product._id}>
             <td>{product._id}</td>
             <td>{product.name}</td>
             <td>{product.price}</td>
@@ -147,7 +154,7 @@ function ProductsScreen(props) {
               {' '}
               <button className="button" onClick={() => deleteHandler(product)} >Excluir</button>
             </td>
-          </tr>))}
+          </tr>)) }
         </tbody>
       </table>
 

@@ -4,7 +4,9 @@ import { PRODUCT_LIST_REQUEST, PRODUCT_LIST_FAIL, PRODUCT_DETAILS_REQUEST, PRODU
 const listProducts= () => async (dispatch) => {
     try { 
         dispatch({ type: PRODUCT_LIST_REQUEST });
-        const { data } = await axios.get("/register/getAllProducts");
+        const { data } = await axios.get("http://localhost:8080/registers/getAllProducts");
+        
+
         dispatch({ type: PRODUCT_LIST_SUCCESS, payload: data }); 
     }   
     catch(error) {
@@ -15,9 +17,9 @@ const listProducts= () => async (dispatch) => {
 const saveProduct = (product) => async (dispatch) => {
     try {
       dispatch({ type: PRODUCT_SAVE_REQUEST, payload: product });
-     
       if (!product._id) {
-        const { data } = await axios.post('/register/registerProduct', product);
+        const { data } = await axios.post('http://localhost:8080/registers/registerProduct', product);
+        
         dispatch({ type: PRODUCT_SAVE_SUCCESS, payload: data });
       } else {
         const { data } = await axios.put('/register/updateProduct/' + product._id, product);
