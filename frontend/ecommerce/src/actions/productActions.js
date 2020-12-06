@@ -22,7 +22,7 @@ const saveProduct = (product) => async (dispatch) => {
         
         dispatch({ type: PRODUCT_SAVE_SUCCESS, payload: data });
       } else {
-        const { data } = await axios.put('/register/updateProduct/' + product._id, product);
+        const { data } = await axios.put('/registers/updateProduct/' + product._id, product);
         dispatch({ type: PRODUCT_SAVE_SUCCESS, payload: data });
       }
   
@@ -35,7 +35,7 @@ const saveProduct = (product) => async (dispatch) => {
 const detailsProduct = (productId) => async (dispatch) => {
     try {
         dispatch({ type: PRODUCT_DETAILS_REQUEST, payload: productId})
-        const { data } = await axios.get("/register/getProduct" + productId);
+        const { data } = await axios.get("/registers/getProduct" + productId);
         dispatch({type: PRODUCT_DETAILS_SUCCESS, payload: data });
     } catch (error) {
         dispatch({type: PRODUCT_DETAILS_FAIL, payload: error.message});
@@ -45,7 +45,7 @@ const detailsProduct = (productId) => async (dispatch) => {
 const deleteProduct = (productId) => async (dispatch, getState) => {
     try {
       dispatch({ type: PRODUCT_DELETE_REQUEST, payload: productId });
-      const { data } = await axios.delete("/register/deleteProduct" + productId);
+      const { data } = await axios.delete("/registers/deleteProduct" + productId);
       dispatch({ type: PRODUCT_DELETE_SUCCESS, payload: data, success: true });
     } catch (error) {
       dispatch({ type: PRODUCT_DELETE_FAIL, payload: error.message });
