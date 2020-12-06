@@ -68,10 +68,10 @@ function ProductsScreen(props) {
   const uploadFileHandler = (e) => {
     const file = e.target.files[0];
     const bodyFormData = new FormData();
-    bodyFormData.append('image', file);
+    bodyFormData.append('image', setFile_url);
     setUploading(true);
     axios
-      .post('/s3/uploads', bodyFormData, {
+      .post('/registers/registerProduct', bodyFormData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

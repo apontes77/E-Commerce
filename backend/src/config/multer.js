@@ -8,7 +8,7 @@ const express = require('express')
 const storageTypes = {
     local: multer.diskStorage({
         destination: (req, file, cb) => {
-            cb(null, path.resolve(__dirname, '..', '..', 'tmp', 'uploads/'))
+            cb(null, path.resolve(__dirname, '..', '..', 'tmp', 'uploads'))
         },
         filename: (req, file, cb) => {
             crypto.randomBytes(16, (err, hash) => {
@@ -40,16 +40,6 @@ const storageTypes = {
         }
     })
 }
-const router = express.Router();
-
-router.post('/', upload.single('file_url'), (req, res) => {
-  res.send(`/${req.file.path}`);
-});
-
-const uploadS3 = multer({ storage: storageS3 });
-router.post('/s3', uploadS3.single('file_url'), (req, res) => {
-  res.send(req.file.location);
-});
 
 module.exports = {
     dest: path.resolve(__dirname, '..', '..', 'tmp', 'uploads'),
@@ -73,6 +63,5 @@ module.exports = {
         }else {
             cb(new Error("Invalid Type"))
         }
-    },
-    router
+    }
 }

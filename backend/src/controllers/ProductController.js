@@ -5,9 +5,9 @@ const Product = require('../models/Products')
 
 const router = express.Router()
 
-router.post('/registerProduct', async (req, res) => {
+router.post('/registerProduct', multer(multerConfig).single('file'), async (req, res) => {
     const { name, price, description, countInStock, brand } = req.body
-    //const { key,  location } = req.file
+   // const { originalname: file_name,  location: file_url = "" } = req.file
 
     try {
         const product = await Product.create({
@@ -16,8 +16,8 @@ router.post('/registerProduct', async (req, res) => {
             description,
             countInStock,
             brand,
-            file_name: ".",
-            file_url: ".",
+            file_name,
+            file_url,
         })
         return res.status(201).send({ product });
     }catch(err) {
@@ -26,7 +26,8 @@ router.post('/registerProduct', async (req, res) => {
 })
 
 router.put('/updateProduct', multer(multerConfig).single('file'), async (req, res) => {
-    const { _id, name, price, description, countInStock } = req.body
+    const { _id, name, price, description, countInStock, brand } = req.body
+    //const { originalname: file_name,  location: file_url = "" } = req.file
   
     try {
         const product = await Product.update({
@@ -36,12 +37,13 @@ router.put('/updateProduct', multer(multerConfig).single('file'), async (req, re
             description,
             countInStock,
             brand,
-            file_name: key,
-            file_url: location,
+            file_name,
+            file_url,
         })
 
-        return res.send({ product })
+        return res.status(200).send({ product })
     }catch(err) {
+        console.log(err);
         return res.status(400).send({ error: err })
     }
 })
