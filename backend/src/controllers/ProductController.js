@@ -46,7 +46,7 @@ router.put('/updateProduct', multer(multerConfig).single('file'), async (req, re
     }
 })
 
-router.post('/deleteProduct', async (req, res) => {
+router.delete('/deleteProduct', async (req, res) => {
     const { _id } = req.body
 
     try {
@@ -69,7 +69,7 @@ router.get('/getAllProducts', async (req, res) => {
     })    
 })
 
-router.get('/getProduct', async (req, res) => {
+router.get('/getProduct/:id', async (req, res) => {
     
     const { _id } = req.body
         
