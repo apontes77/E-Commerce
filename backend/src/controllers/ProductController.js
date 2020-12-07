@@ -6,12 +6,12 @@ const Product = require('../models/Products')
 const router = express.Router()
 
 router.post('/registerProduct', multer(multerConfig).single('file'), async (req, res) => {
-    const { name, price, description, countInStock, brand } = req.body
-   // const { originalname: file_name,  location: file_url = "" } = req.file
+    const { name, price, description, countInStock, brand } = JSON.parse(req.body.document)
+    const { originalname: file_name,  location: file_url = "" } = req.file
 
     try {
         const product = await Product.create({
-            name: name,
+            name,
             price,
             description,
             countInStock,
@@ -21,13 +21,14 @@ router.post('/registerProduct', multer(multerConfig).single('file'), async (req,
         })
         return res.status(201).send({ product });
     }catch(err) {
+        console.log(err)
         return res.status(400).send({ error: err })
     }
 })
 
 router.put('/updateProduct', multer(multerConfig).single('file'), async (req, res) => {
-    const { _id, name, price, description, countInStock, brand } = req.body
-    //const { originalname: file_name,  location: file_url = "" } = req.file
+    const { _id, name, price, description, countInStock, brand } = JSON.parse(req.body)
+    const { originalname: file_name,  location: file_url = "" } = req.file
   
     try {
         const product = await Product.update({

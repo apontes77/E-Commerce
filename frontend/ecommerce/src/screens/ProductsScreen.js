@@ -51,7 +51,7 @@ function ProductsScreen(props) {
       price,
       file_url,
       brand,
-      countInStock: "",
+      countInStock: "1",
       description,
     }));
   }
@@ -65,27 +65,7 @@ function ProductsScreen(props) {
     return () => {};
   }, [])
 
-  const uploadFileHandler = (e) => {
-    const file = e.target.files[0];
-    const bodyFormData = new FormData();
-    bodyFormData.append('image', setFile_url);
-    setUploading(true);
-    axios
-      .post('/registers/registerProduct', bodyFormData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      })
-      .then((response) => {
-        setFile_url(response.data);
-        setUploading(false);
-      })
-      .catch((err) => {
-        console.log(err);
-        setUploading(false);
-      });
-  };
-
+  
   return <div className="content content-margined">
 {async function t(){ console.log(await productList)}}
 
@@ -125,8 +105,8 @@ function ProductsScreen(props) {
           </label>
               <input type="text" name="image" value={file_url} id="image" onChange={(e) => setFile_url(e.target.value)}>
               </input>
-              <input type="file" onChange={uploadFileHandler}></input>
-                {uploading && <div>Uploading...</div>}
+              <input type="file" id='file'></input>
+              
             </li>
             <li>
               <label htmlFor="brand">

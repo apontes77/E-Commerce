@@ -15,10 +15,17 @@ const listProducts = () => async (dispatch) => {
 }
 
 const saveProduct = (product) => async (dispatch) => {
+    const bodyFormData = new FormData();  
+    const file = document.querySelector('#file')
+
+    bodyFormData.append('file', file.files[0])
+    bodyFormData.append('document', JSON.stringify(product))
+
     try {
       dispatch({ type: PRODUCT_SAVE_REQUEST, payload: product });
       if (!product._id) {
-        const { data } = await axios.post('http://localhost:8080/registers/registerProduct', product);
+        
+        const { data } = await axios.post('http://localhost:8080/registers/registerProduct', bodyFormData);
         
         dispatch({ type: PRODUCT_SAVE_SUCCESS, payload: data });
       } else {
