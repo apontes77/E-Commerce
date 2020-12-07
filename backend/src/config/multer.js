@@ -3,6 +3,7 @@ const multerS3 = require('multer-s3')
 const path = require('path')
 const crypto = require('crypto')
 const aws = require('aws-sdk')
+const express = require('express')
 
 const storageTypes = {
     local: multer.diskStorage({

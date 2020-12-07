@@ -65,7 +65,7 @@ function PlaceOrderScreen(props) {
                 cartItems.map(item =>
                   <li>
                     <div className="cart-image">
-                      <img src={item.image} alt="product" />
+                      <img src={item.file_url} alt="product" />
                     </div>
                     <div className="cart-name">
                       <div>
@@ -75,7 +75,7 @@ function PlaceOrderScreen(props) {
 
                       </div>
                       <div>
-                        Qty: {item.qty}
+                        Qtde: {item.countInStock}
                       </div>
                     </div>
                     <div className="cart-price">
@@ -92,7 +92,7 @@ function PlaceOrderScreen(props) {
       <div className="placeorder-action">
         <ul>
           <li>
-            <button className="button primary full-width" onClick={placeOrderHandler} >Place Order</button>
+            <button className="button primary full-width" onClick={placeOrderHandler} >Fazer o pedido</button>
           </li>
           <li>
             <h3>Resumo do Pedido</h3>

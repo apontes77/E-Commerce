@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { saveProduct, listProducts, deleteProduct } from '../actions/productActions';
+import { saveProduct, deleteProduct, listProducts } from '../actions/productActions';
+import axios from 'axios'
 
 function ProductsScreen(props) {
 
@@ -12,9 +13,9 @@ function ProductsScreen(props) {
   const [brand, setBrand] = useState('');
   const [countInStock, setCountInStock] = useState('');
   const [description, setDescription] = useState('');
-  const productList = useSelector(state => state.productList);
-  const products = [listProducts()];
-  const { loading, error } = productList;
+  const [uploading, setUploading] = useState(false);
+  const productList = useSelector((state) => state.productList);
+  const { loading, products, error } = productList;
 
   const productSave = useSelector(state => state.productSave);
   const { loading: loadingSave, success: successSave, error: errorSave } = productSave;
@@ -46,18 +47,45 @@ function ProductsScreen(props) {
     e.preventDefault();
     dispatch(saveProduct({
       _id: id,
-      valueUnit: "",
       name, 
       price,
-      description,
-      countInStock, 
+      file_url,
       brand,
-      amount: ""
+      countInStock: "",
+      description,
     }));
   }
   const deleteHandler = (product) => {
     dispatch(deleteProduct(product._id));
   }
+
+  useEffect(() => {
+    dispatch(listProducts);
+
+    return () => {};
+  }, [])
+
+  const uploadFileHandler = (e) => {
+    const file = e.target.files[0];
+    const bodyFormData = new FormData();
+    bodyFormData.append('image', setFile_url);
+    setUploading(true);
+    axios
+      .post('/registers/registerProduct', bodyFormData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then((response) => {
+        setFile_url(response.data);
+        setUploading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setUploading(false);
+      });
+  };
+
   return <div className="content content-margined">
 {async function t(){ console.log(await productList)}}
 
@@ -97,6 +125,8 @@ function ProductsScreen(props) {
           </label>
               <input type="text" name="image" value={file_url} id="image" onChange={(e) => setFile_url(e.target.value)}>
               </input>
+              <input type="file" onChange={uploadFileHandler}></input>
+                {uploading && <div>Uploading...</div>}
             </li>
             <li>
               <label htmlFor="brand">
@@ -144,17 +174,18 @@ function ProductsScreen(props) {
           </tr>
         </thead>
         <tbody>
-          { products.map(product => (<tr key={product._id}>
+          { 
+            products.map((product) => (<tr key={product._id}>
             <td>{product._id}</td>
             <td>{product.name}</td>
             <td>{product.price}</td>
             <td>{product.brand}</td>
-            <td>
-              <button className="button" onClick={() => openModal(product)} >Editar</button>
+            <td><button className="button" onClick={() => openModal(product)} >Editar</button>
               {' '}
               <button className="button" onClick={() => deleteHandler(product)} >Excluir</button>
             </td>
-          </tr>)) }
+          </tr>))
+          }
         </tbody>
       </table>
 

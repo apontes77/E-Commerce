@@ -1,36 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import data from '../data';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { detailsProduct } from '../actions/productActions';
 
 function ProductScreen (props) {
-    const product = data.products.find
-                        (x => x._id === props.match.params.id);
+    
     const [qtde, setQtde] = useState(1);
     const productDetails = useSelector(state => state.productDetails);
-    const { prod, loading, error } = productDetails;
+    const { product, loading, error } = productDetails;
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(detailsProduct(props.match.params.id));
+        dispatch(detailsProduct(props.match.params._id));
         return () => { };
     }, []);
 
     const handleAddToCart = () => {
-        props.history.push("/cart/" + props.match.params.id + "?qtde = " + qtde)
+        props.history.push("/cart/" + props.match.params._id + "?qtde = " + qtde)
     }
 
     return <div>
         <div className="back-to-result">
             <Link to="/">Voltar para página principal</Link>
         </div>
-        {loading ? <div>Loading...</div> :
+        {loading ? <div>Carregando...</div> :
           error ? <div>{error} </div> : 
             (
             <div className="details">
                     <div className="details-image"> 
-                        <img src={product.image} alt="product"></img>
+                        <img src={product.file_url} alt="product"></img>
                     </div>
                         <div className="details-info">
                             <ul>
