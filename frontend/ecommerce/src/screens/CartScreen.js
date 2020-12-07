@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import {removeFromCart, addToCart} from '../actions/cartActions';
+import { removeFromCart, addToCart } from '../actions/cartActions';
 
 function CartScreen(props){
 
@@ -9,7 +9,8 @@ function CartScreen(props){
 
     const { cartItems } = cart;
 
-    const productId = props.match.params.id;
+    const productId = props.match.params._id;
+    
     const qtde = props.location.search? Number(props.location.search.split("=")[1]):1;
     const dispatch = useDispatch();
 
@@ -18,12 +19,7 @@ function CartScreen(props){
         dispatch(removeFromCart(productId));
     }
 
-    useEffect(() => {
-        if(productId){
-            dispatch(addToCart(productId, qtde));
-        }
-    }, []);
-
+    dispatch(addToCart(productId, qtde));
 
 const checkoutHandler = () => {
     props.history.push("/signing?redirect=shipping")
