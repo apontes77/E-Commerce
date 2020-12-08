@@ -6,6 +6,8 @@ import { listProducts } from '../actions/productActions';
 function HomeScreen(props) {
   const productList = useSelector((state) => state.productList);
   const { products, loading, error } = productList;
+  
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(listProducts());
@@ -23,7 +25,7 @@ function HomeScreen(props) {
             <li key={product._id}>
               <div className="product">
                 <Link to={'/product/' + product._id}>
-                  <img className="product-image" src={product.file_url} alt="product" />
+                  <img className="product-image" src={product.file_url} alt={product.name} />
 
                 </Link>
                 <div className="product-name">

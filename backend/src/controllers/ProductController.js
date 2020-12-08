@@ -27,12 +27,11 @@ router.post('/registerProduct', multer(multerConfig).single('file'), async (req,
 })
 
 router.put('/updateProduct', multer(multerConfig).single('file'), async (req, res) => {
-    const { _id, name, price, description, countInStock, brand } = JSON.parse(req.body)
+    const { _id, name, price, description, countInStock, brand } = JSON.parse(req.body.document)
     const { originalname: file_name,  location: file_url = "" } = req.file
-  
+    
     try {
-        const product = await Product.update({
-            _id,
+        const product = await Product.updateOne({ _id },{
             name: name,
             price,
             description,
@@ -49,8 +48,8 @@ router.put('/updateProduct', multer(multerConfig).single('file'), async (req, re
     }
 })
 
-router.delete('/deleteProduct', async (req, res) => {
-    const { _id } = req.body
+router.delete('/deleteProduct/:_id', async (req, res) => {
+    const { _id } = req.params
 
     try {
         const product = await Product.deleteOne({ _id })
@@ -72,10 +71,11 @@ router.get('/getAllProducts', async (req, res) => {
     })    
 })
 
-router.get('/getProduct/:id', async (req, res) => {
+router.get('/getProduct/:_id', async (req, res) => {
+
+    const { _id } = req.params
     
-    const { _id } = req.body
-        
+
     Product.findOne({ _id }, (err, item) => {
 
         if(err)
