@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { saveProduct, deleteProduct, listProducts } from '../actions/productActions';
-import axios from 'axios'
 
 function ProductsScreen(props) {
 
@@ -14,13 +13,14 @@ function ProductsScreen(props) {
   const [countInStock, setCountInStock] = useState('');
   const [description, setDescription] = useState('');
   const [uploading, setUploading] = useState(false);
-  const productList = useSelector((state) => state.productList);
+
+  const productList = useSelector(state => state.productList);
   const { loading, products, error } = productList;
 
-  const productSave = useSelector(state => state.productSave);
+  const productSave = useSelector((state) => state.productSave);
   const { loading: loadingSave, success: successSave, error: errorSave } = productSave;
 
-  const productDelete = useSelector(state => state.productDelete);
+  const productDelete = useSelector((state) => state.productDelete);
   const { loading: loadingDelete, success: successDelete, error: errorDelete } = productDelete;
   const dispatch = useDispatch();
 
@@ -29,19 +29,19 @@ function ProductsScreen(props) {
     if (successSave) {
       setModalVisible(false);
     }
-    
+    dispatch(listProducts);
     return () => {};
-  }, [successSave, successDelete]);
+  }, [successSave, successDelete])
 
   const openModal = (product) => {
     setModalVisible(true);
     setId(product._id);
     setName(product.name);
     setPrice(product.price);
-    setDescription(product.description);
     setFile_url(product.file_url);
     setBrand(product.brand);
     setCountInStock(product.countInStock);
+    setDescription(product.description);
   }
   const submitHandler = (e) => {
     e.preventDefault();
@@ -51,23 +51,16 @@ function ProductsScreen(props) {
       price,
       file_url,
       brand,
-      countInStock: "1",
+      countInStock,
       description,
     }));
   }
   const deleteHandler = (product) => {
+    console.log(product._id);
     dispatch(deleteProduct(product._id));
   }
 
-  useEffect(() => {
-    dispatch(listProducts);
-
-    return () => {};
-  }, [])
-
-  
   return <div className="content content-margined">
-{async function t(){ console.log(await productList)}}
 
     <div className="product-header">
       <h3>Produtos</h3>
