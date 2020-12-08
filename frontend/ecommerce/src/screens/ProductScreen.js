@@ -10,8 +10,10 @@ function ProductScreen (props) {
     const { products: product, loading, error } = productDetails;
     const dispatch = useDispatch();
 
-    dispatch(detailsProduct(props.match.params._id));
-
+    useEffect(() => {	    
+        dispatch(detailsProduct(props.match.params._id));	
+        return () => { };	
+    }, []);
     
     const handleAddToCart = () => {
         props.history.push("/cart/" + props.match.params._id + "?qtde = " + qtde)
