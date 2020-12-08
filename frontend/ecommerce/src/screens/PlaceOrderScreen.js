@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { addToCart, removeFromCart } from '../actions/cartActions';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CheckoutSteps from '../components/CheckoutSteps';
@@ -65,7 +64,7 @@ function PlaceOrderScreen(props) {
                 cartItems.map(item =>
                   <li>
                     <div className="cart-image">
-                      <img src={item.file_url} alt="product" />
+                      <img src={item.file_url} alt={item.name} />
                     </div>
                     <div className="cart-name">
                       <div>
