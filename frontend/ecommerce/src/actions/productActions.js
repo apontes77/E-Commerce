@@ -29,7 +29,8 @@ const saveProduct = (product) => async (dispatch) => {
         
         dispatch({ type: PRODUCT_SAVE_SUCCESS, payload: data });
       } else {
-        const { data } = await axios.put('http://localhost:8080/registers/updateProduct/' + product._id, product);
+        console.log(product)
+        const { data } = await axios.put('http://localhost:8080/registers/updateProduct', bodyFormData);
         dispatch({ type: PRODUCT_SAVE_SUCCESS, payload: data });
       }
     } catch (error) { 
