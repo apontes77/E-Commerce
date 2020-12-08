@@ -22,7 +22,9 @@ function CartScreen(props){
     dispatch(addToCart(productId, qtde));
 
 const checkoutHandler = () => {
-    props.history.push("/signing?redirect=shipping")
+    alert('pagamento realizado com sucesso!')
+
+    props.history.push("/")
 }
 
     return <div className="cart">
