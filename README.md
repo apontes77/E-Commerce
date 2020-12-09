@@ -22,8 +22,8 @@
     <img src="https://img.shields.io/static/v1?label=AWS&message=AWS_S3&color=red&style=for-the-badge&logo=ghost"/><br/>
 </a>
 <h2 align="left">
-  <h3>Contribuição</h3><br/>
-  <a src="https://www.linkedin.com/in/alexandre-pontes-de-queiroz/">Alexandre Pontes</a><br/>
-  <a src="https://www.linkedin.com/in/leonardo-feitas-b98b0b192/">Leonardo Freitas</a><br/>
+  <a> Contribuição</a>
 </h2>
+  <h5 src="https://www.linkedin.com/in/alexandre-pontes-de-queiroz/">Alexandre Pontes</h5><br/>
+  <h5 src="https://www.linkedin.com/in/leonardo-feitas-b98b0b192/">Leonardo Freitas</h5><br/>
 </p>
