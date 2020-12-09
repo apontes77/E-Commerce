@@ -24,5 +24,4 @@
   <a src="https://www.linkedin.com/in/alexandre-pontes-de-queiroz/">Alexandre Pontes</a><br/>
   <a src="https://www.linkedin.com/in/leonardo-feitas-b98b0b192/">Leonardo Freitas</a><br/>
 </h2>
- <a href="#licenc-a">Licença</a> 
 </p>
