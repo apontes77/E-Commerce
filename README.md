@@ -2,13 +2,15 @@
 
 ## Descrição do Projeto
 
-<p align="center">Aplicação simples com propósito educacional.</p>
+<p align="left">Aplicação simples com propósito educacional.</p>
 
 <p align="center">
   <h2 align="left">
     <a>Objetivo</a>
 </h2>
- <a href="#objetivo">Mini projeto de desenvolvimento de software Web que envolveu a criação de um tipo de 'e-commerce'.</a> 
+
+<a href="#objetivo">Mini projeto de desenvolvimento de software Web que envolveu a criação de um tipo de 'e-commerce'.</a> 
+
  <h2 align="left">
   <a>Tecnologias</a>
 </h2>
