@@ -24,6 +24,6 @@
 <h2 align="left">
   <a> Contribuição</a>
 </h2>
-  <h5 src="https://www.linkedin.com/in/alexandre-pontes-de-queiroz/">Alexandre Pontes</h5><br/>
-  <h5 src="https://www.linkedin.com/in/leonardo-feitas-b98b0b192/">Leonardo Freitas</h5><br/>
+  <h5 src="https://www.linkedin.com/in/alexandre-pontes-de-queiroz/">Alexandre Pontes</h5>
+  <h5 src="https://www.linkedin.com/in/leonardo-feitas-b98b0b192/">Leonardo Freitas</h5>
 </p>
