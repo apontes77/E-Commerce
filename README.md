@@ -16,8 +16,7 @@
 Basta executar em sua linha de comando - dentro dos diretórios 'backend' e 'frontend/ecommerce' - o comando 'yarn'.
 Este instalará as dependências necessárias em sua máquina local.
 Além disso, para ter acesso ao banco de dados, é necessário configurar o MongoDB. 
-Se desejar as configurações para teste usadas neste projeto, envie solicitação para o seguinte e-mail:
-<a>leonardodmfp@gmail.com</a>.
+Se desejar as configurações para teste usadas neste projeto, envie solicitação para o e-mail do colaborador <a href="mailto:leonardodmfp@gmail.com">Leonardo Freitas</a>.
 
 <h2 align="left">
   <a> Contribuição</a>
