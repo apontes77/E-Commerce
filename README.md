@@ -17,7 +17,7 @@ Basta executar em sua linha de comando - dentro dos diretórios 'backend' e 'fro
 Este instalará as dependências necessárias em sua máquina local.
 Além disso, para ter acesso ao banco de dados, é necessário configurar o MongoDB. 
 Se desejar as configurações para teste usadas neste projeto, envie solicitação para o seguinte e-mail:
-<a>leonardodmfp@gmail.com</a>
+<a>leonardodmfp@gmail.com</a>.
 
 <h2 align="left">
   <a> Contribuição</a>
