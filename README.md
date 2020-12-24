@@ -9,18 +9,16 @@
     <a>Objetivo</a>
 </h2>
 
-<a href="#objetivo">Mini projeto de desenvolvimento de software Web que envolveu a criação de um tipo de 'e-commerce'.</a> 
+<p>Mini projeto de desenvolvimento de software Web que envolveu a criação de um tipo de 'e-commerce'.</p> 
 
- <h2 align="left">
-  <a>Tecnologias</a>
-</h2>
- <a href="#tecnologias">
-    <img src="https://img.shields.io/static/v1?label=React&message=React&color=7159c1&style=for-the-badge&logo=ghost"/><br/>
-    <img src="https://img.shields.io/static/v1?label=Redux&message=Redux&color=7159c1&style=for-the-badge&logo=ghost"/><br/>
-    <img src="https://img.shields.io/static/v1?label=JS&message=Javascript&color=yellowgreen&style=for-the-badge&logo=ghost"/><br/>
-    <img src="https://img.shields.io/static/v1?label=NoSQL&message=MongoDB&color=green&style=for-the-badge&logo=ghost"/><br/>
-    <img src="https://img.shields.io/static/v1?label=AWS&message=AWS_S3&color=red&style=for-the-badge&logo=ghost"/><br/>
-</a>
+## Como executar este projeto em sua máquina local
+
+Basta executar em sua linha de comando - dentro dos diretórios 'backend' e 'frontend/ecommerce' - o comando 'yarn'.
+Este instalará as dependências necessárias em sua máquina local.
+Além disso, para ter acesso ao banco de dados, é necessário configurar o MongoDB. 
+Se desejar as configurações para teste usadas neste projeto, envie solicitação para o seguinte e-mail:
+<a>leonardodmfp@gmail.com</a>
+
 <h2 align="left">
   <a> Contribuição</a>
 </h2>
